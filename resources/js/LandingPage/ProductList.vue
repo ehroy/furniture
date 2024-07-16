@@ -3,11 +3,7 @@
         <div class="container mx-auto">
             <h2 class="text-2xl font-bold text-center mb-8">Produk Unggulan</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Product
-                    v-for="product in products"
-                    :key="product.id"
-                    :product="product"
-                />
+                <Product v-for="data in datas" :key="data.id" :data="datas" />
             </div>
             <div class="flex justify-between items-center mt-8">
                 <h2 class="text-3xl font-bold"></h2>
@@ -17,7 +13,13 @@
     </section>
 </template>
 
-<script>
+<script setup>
+import Product from "./Product.vue";
+defineProps({
+    data: Object,
+});
+</script>
+<!-- <script>
 import Product from "./Product.vue";
 
 export default {
@@ -50,4 +52,4 @@ export default {
         };
     },
 };
-</script>
+</script> -->

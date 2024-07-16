@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductsResource\Pages;
 use App\Filament\Resources\ProductsResource\RelationManagers;
+use App\Models\Categori;
 use App\Models\Product;
 use App\Models\Products;
 use Filament\Forms;
@@ -21,11 +22,13 @@ class ProductsResource extends Resource
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    protected static ?string $navigationGroup = 'Product & Category';
+    protected static ?int $navigationSort = 1;
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+            Forms\Components\Select::make('category_id')->options(Categori::all()->pluck('name','id'))->required()->native(false)->columnSpanFull(),
             Forms\Components\TextInput::make('name')
                 ->required()
                 ->maxLength(255)

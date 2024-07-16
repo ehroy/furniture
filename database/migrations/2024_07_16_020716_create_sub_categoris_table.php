@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categoris', function (Blueprint $table) {
+        Schema::create('sub_categoris', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable(false);
-            $table->text('description')->nullable();
+            $table->integer('category_id');
+            $table->string('image')->default('https://placehold.co/400x400?text=No+image');
+            $table->string('name');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categoris');
+        Schema::dropIfExists('sub_categoris');
     }
 };
