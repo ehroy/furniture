@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="tabs mt-8 bg-gray-50">
+    <div class="mt-8 bg-gray-50">
         <div class="tab-headers flex border-b">
             <div
                 @click="activeTab = 'description'"
@@ -81,7 +81,7 @@
                 }"
                 class="px-4 py-2 cursor-pointer"
             >
-                Deskripsi
+                <button @click="toggleDescription">Deskripsi</button>
             </div>
 
             <div
@@ -91,24 +91,11 @@
                         activeTab === 'specifications',
                 }"
                 class="px-4 py-2 cursor-pointer"
-            >
-                Spesifikasi
-            </div>
+            ></div>
         </div>
-        <div class="tab-content mt-4 ms-6">
+        <div class="tab-content mt-4 ms-6" v-if="showDescription">
             <div v-if="activeTab === 'description'">
-                <p class="text-gray-700 mb-4">peli</p>
-            </div>
-            <div v-if="activeTab === 'specifications'">
-                <!-- Konten Spesifikasi -->
-                <div class="mb-4">
-                    <h3 class="text-lg">Material</h3>
-                    <p class="text-gray-700">xx</p>
-                </div>
-                <div class="mb-4">
-                    <h3 class="text-lg">Dimensi</h3>
-                    <p class="text-gray-700">xx</p>
-                </div>
+                <p v-html="Products.desc" />
             </div>
         </div>
     </div>
@@ -128,6 +115,12 @@ defineProps({
     ProductAttribute: Object,
     ProductImage: Object,
 });
+const showDescription = ref(true);
+
+const toggleDescription = () => {
+    showDescription.value = !showDescription.value;
+};
+
 function imageUrl(string) {
     const urlPattern = /^(http|https):\/\//i;
 
