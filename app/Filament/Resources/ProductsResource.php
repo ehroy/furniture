@@ -19,6 +19,7 @@ use Illuminate\Support\Str;
 
 class ProductsResource extends Resource
 {
+    
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

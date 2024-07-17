@@ -7,70 +7,76 @@
             <nav>
                 <ul class="flex space-x-6 font-poppins">
                     <li>
-                        <a
-                            href="#home"
-                            class="text-gray-900 hover:text-gray-400"
+                        <a href="/" class="text-gray-900 hover:text-gray-400"
                             >Home</a
                         >
                     </li>
                     <li>
                         <a
-                            href="#products"
+                            href="/products"
                             class="text-gray-900 hover:text-gray-400"
                             >Products</a
                         >
                     </li>
                     <li>
-                        <a
-                            href="#about"
-                            class="text-gray-900 hover:text-gray-400"
+                        <a href="/" class="text-gray-900 hover:text-gray-400"
                             >About</a
                         >
                     </li>
                     <li>
-                        <a
-                            href="#contact"
-                            class="text-gray-900 hover:text-gray-400"
+                        <a href="/" class="text-gray-900 hover:text-gray-400"
                             >Contact</a
                         >
                     </li>
                     <li>
                         <div
-                            id="search-toggle"
-                            class="search-icon cursor-pointer pl-6"
+                            class="search-icon cursor-pointer pl-6 flex gap-2 justify-center items-center"
                         >
-                            <svg
-                                class="fill-current pointer-events-none text-grey-darkest w-4 h-4 inline"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                            >
-                                <path
-                                    d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
-                                ></path>
-                            </svg>
+                            <label for="search" class="block text-gray-700"
+                                ><svg
+                                    class="fill-current pointer-events-none text-grey-darkest w-4 h-4 inline"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
+                                    ></path>
+                                </svg>
+                            </label>
+                            <input
+                                for="search"
+                                type="text"
+                                id="search"
+                                v-model="searchQuery"
+                                class="w-full border rounded px-3 hidden hover:block"
+                                placeholder="Search items..."
+                            />
                         </div>
                     </li>
                 </ul>
             </nav>
         </div>
-        <div
-            class="relative w-full hidden bg-white shadow-xl"
-            id="search-content"
-        >
-            <div class="container mx-auto py-4 text-black">
-                <input
-                    id="searchfield"
-                    type="search"
-                    placeholder="Search..."
-                    autofocus="autofocus"
-                    class="w-full text-grey-800 transition focus:outline-none focus:border-transparent p-2 appearance-none leading-normal text-xl lg:text-2xl"
-                />
-            </div>
-        </div>
     </header>
 </template>
 
 <script>
+import { ref, computed } from "vue";
+const items = ref([
+    { id: 1, name: "Chair" },
+    { id: 2, name: "Table" },
+    { id: 3, name: "Lamp" },
+    { id: 4, name: "Sofa" },
+    { id: 5, name: "Shelf" },
+]);
+const searchQuery = ref("");
+const filteredItems = computed(() => {
+    if (searchQuery.value === "") {
+        return items.value;
+    }
+    return items.value.filter((item) =>
+        item.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+    );
+});
 export default {
     methods: {
         contactUs() {

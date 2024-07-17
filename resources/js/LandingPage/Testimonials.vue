@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-gradient-to-b from-white to-blue-50 py-12">
+    <section class="bg-gray-100 py-12">
         <div class="container mx-auto text-center">
             <h2 class="text-2xl font-bold mb-4">Testimoni Pelanggan</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

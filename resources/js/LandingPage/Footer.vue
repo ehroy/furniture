@@ -1,10 +1,10 @@
 <template>
-    <footer class="bg-gradient-to-b from-blue-50 to-blue-400 py-8">
+    <footer class="bg-[#ecc698] py-8">
         <div
-            class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-gray-700"
+            class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-gray-900"
         >
             <div>
-                <h3 class="text-lg font-bold mb-4">Company</h3>
+                <h3 class="text-lg font-primary mb-4">Company</h3>
                 <ul>
                     <li>
                         <a href="#" class="hover:text-blue-500">About Us</a>
@@ -14,7 +14,7 @@
                 </ul>
             </div>
             <div>
-                <h3 class="text-lg font-bold mb-4">Contact</h3>
+                <h3 class="text-lg font-primary mb-4">Contact</h3>
                 <ul>
                     <li>Address: Mohammadpur, Dhaka</li>
                     <li>Phone: ++88012345678976</li>
@@ -22,7 +22,7 @@
                 </ul>
             </div>
             <div>
-                <h3 class="text-lg font-bold mb-4">Important Links</h3>
+                <h3 class="text-lg font-primary mb-4">Important Links</h3>
                 <ul>
                     <li><a href="#" class="hover:text-blue-500">Shop</a></li>
                     <li>
@@ -38,7 +38,7 @@
                 </ul>
             </div>
             <div>
-                <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+                <h3 class="text-lg font-primary mb-4">Follow Us</h3>
                 <ul>
                     <li>
                         <a href="#" class="hover:text-blue-500">Facebook</a>

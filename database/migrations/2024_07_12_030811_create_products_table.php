@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('category_id');
             $table->string('name');
             $table->text('desc');
-            $table->string('price');
+            $table->integer('price');
             $table->string('slug');
             $table->string('image');
             $table->string('active');

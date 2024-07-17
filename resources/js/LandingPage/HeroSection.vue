@@ -10,7 +10,7 @@
             <button
                 class="bg-white text-gray-900 py-2 px-4 rounded font-semibold hover:bg-blue-400 hover:transition-colors hover:text-white"
             >
-                Shop Now
+                <a href="/products">Shop Now</a>
             </button>
         </div>
     </section>

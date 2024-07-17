@@ -1,25 +1,22 @@
 <template>
     <section class="py-12">
         <div class="container mx-auto">
-            <h2 class="text-2xl font-bold text-center mb-8">Produk Unggulan</h2>
+            <h2 class="text-2xl font-bold mb-8">Rekomendasi Produk</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Product v-for="data in datas" :key="data.id" :data="datas" />
+                <Product
+                    v-for="product in products"
+                    :key="product.id"
+                    :product="product"
+                />
             </div>
             <div class="flex justify-between items-center mt-8">
-                <h2 class="text-3xl font-bold"></h2>
                 <a href="#" class="text-blue-500">See all</a>
             </div>
         </div>
     </section>
 </template>
 
-<script setup>
-import Product from "./Product.vue";
-defineProps({
-    data: Object,
-});
-</script>
-<!-- <script>
+<script>
 import Product from "./Product.vue";
 
 export default {
@@ -52,4 +49,4 @@ export default {
         };
     },
 };
-</script> -->
+</script>
