@@ -29,7 +29,7 @@
             </div>
             <div class="flex justify-between items-center mt-8">
                 <h2 class="text-3xl font-bold"></h2>
-                <a href="/product" class="text-blue-500">See all</a>
+                <a href="/products" class="text-blue-500">See all</a>
             </div>
         </div>
     </section>

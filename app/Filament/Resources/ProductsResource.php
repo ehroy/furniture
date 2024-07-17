@@ -48,7 +48,11 @@ class ProductsResource extends Resource
             Forms\Components\RichEditor::make('desc')
             ->required()
             ->columnSpanFull(), 
-            Forms\Components\FileUpload::make('image'),
+            Forms\Components\FileUpload::make('image')
+            ->multiple()
+            ->image()
+            ->imageEditor()
+            ,
             Forms\Components\Toggle::make('active')
                 ->required(),
             Forms\Components\Toggle::make('recomended')->label('is Recommended?')->required(),
