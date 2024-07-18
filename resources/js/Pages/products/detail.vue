@@ -3,21 +3,29 @@
     <div class="container mx-auto py-8 mt-24 font-primary">
         <div class="flex flex-wrap -mx-4">
             <div class="w-full md:w-1/2 px-4">
+                <nav class="text-gray-600 text-sm mb-4">
+                    <a href="/" class="hover:underline">home</a> /
+                    <a href="/category" class="hover:underline">{{
+                        Categori.name
+                    }}</a>
+                    /
+                    <a href="#" class="hover:underline">{{ Products.name }}</a>
+                </nav>
                 <div class="image-gallery">
                     <img
-                        :src="imageUrl(ProductImage[activeImage].image_url)"
+                        :src="imageUrl(Products.image[activeImage])"
                         alt="Product Image"
                         class="w-full rounded-lg mb-4 h-96"
                     />
                     <div class="flex space-x-2">
                         <div
-                            v-for="(image, index) in ProductImage"
+                            v-for="(images, index) in Products.image"
                             :key="index"
                             @click="activeImage = index"
                             class="cursor-pointer"
                         >
                             <img
-                                :src="imageUrl(image.image_url)"
+                                :src="imageUrl(images)"
                                 :class="{
                                     'border-2 border-blue-500':
                                         activeImage === index,
@@ -29,16 +37,39 @@
                 </div>
             </div>
             <div class="w-full md:w-1/2 px-4">
-                <h1 class="text-3xl font-semibold mb-2">{{ Products.name }}</h1>
+                <h1
+                    class="flex items-center gap-4 text-3xl font-semibold mb-2 mt-8"
+                >
+                    {{ Categori.name }}
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
+                        />
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 6h.008v.008H6V6Z"
+                        />
+                    </svg>
+                </h1>
                 <h2 class="text-xl font-semibold mb-4">
                     {{ Products.name }}
                 </h2>
                 <p class="text-2xl font-bold text-gray-900 mb-4">
-                    {{ helpers.rupiah(Products.price.toLocaleString()) }}
+                    {{ helpers.rupiah(Products.price) }}
                 </p>
                 <p class="line-through text-gray-500 mb-4">
                     Harga Retail IDR
-                    {{ helpers.rupiah(Products.price.toLocaleString()) }}
+                    {{ helpers.rupiah(Products.price) }}
                 </p>
 
                 <div class="mb-4">
@@ -112,6 +143,7 @@ const helpers = inject("helper");
 import { ref } from "vue";
 defineProps({
     Products: Object,
+    Categori: Object,
     ProductAttribute: Object,
     ProductImage: Object,
 });

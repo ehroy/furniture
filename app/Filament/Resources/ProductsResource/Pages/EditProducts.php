@@ -20,25 +20,25 @@ class EditProducts extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
-    protected function mutateFormDataBeforeSave(array $data): array
-    {
-        // dd($data);
-        $id = json_decode(request()->components[0]['snapshot'])->data->data[0]->id;
-        $imge = $data['image'];
-            foreach($imge as $imgx){
-            $img =  \App\Models\ProductImages::where("product_id",$id)->get();
-            foreach($img as $imgg){
-                $imgsx  = ProductImages::find($imgg->id);
-                $imgsx->image_url = url('storage/'.$imgx);
-                $imgsx->save();
-            }
+    // protected function mutateFormDataBeforeSave(array $data): array
+    // {
+    //     // dd($data);
+    //     $id = json_decode(request()->components[0]['snapshot'])->data->data[0]->id;
+    //     $imge = $data['image'];
+    //         foreach($imge as $imgx){
+    //         $img =  \App\Models\ProductImages::where("product_id",$id)->get();
+    //         foreach($img as $imgg){
+    //             $imgsx  = ProductImages::find($imgg->id);
+    //             $imgsx->image_url = url('storage/'.$imgx);
+    //             $imgsx->save();
+    //         }
             
             
-        } 
-        $data['image'] = $imge[0];
+    //     } 
+    //     // $data['image'] = $imge[0];
         
 
 
-        return $data;
-    }
+    //     return $data;
+    // }
 }

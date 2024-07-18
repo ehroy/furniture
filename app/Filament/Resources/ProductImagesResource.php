@@ -26,7 +26,10 @@ class ProductImagesResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('product_id')->options(Product::all()->pluck('name','id'))->required()->native(false)->columnSpanFull(),
-                Forms\Components\FileUpload::make('image_url'),
+                Forms\Components\FileUpload::make('image_url')
+                ->multiple()
+                ->image()
+                ->imageEditor(),
             ]);
     }
 

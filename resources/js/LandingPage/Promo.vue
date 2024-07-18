@@ -39,13 +39,13 @@ export default {
                 {
                     id: 1,
                     name: "Luxurious Sofa Set Collection",
-                    discount: 25,
+                    discount: 10,
                     image: "/assets/images/interior-3530455_1280.jpg",
                 },
                 {
                     id: 2,
                     name: "New Combo Collection",
-                    discount: 20,
+                    discount: 5,
                     image: "/assets/images/kursi satu set meja.jpg",
                 },
             ],

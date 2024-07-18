@@ -1,8 +1,6 @@
 <template>
-    <footer class="bg-[#ecc698] py-8">
-        <div
-            class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-gray-900"
-        >
+    <footer class="bg-blue-400 text-gray-100 py-8">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
                 <h3 class="text-lg font-primary mb-4">Company</h3>
                 <ul>
