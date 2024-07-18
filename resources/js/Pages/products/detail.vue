@@ -130,13 +130,47 @@
             </div>
         </div>
     </div>
-    <Recomended />
+    <section class="py-12">
+        <div class="container mx-auto">
+            <h2 class="text-5xl font-extrabold text-center mb-6 text-gray-700">
+                Rekomendasi Produk
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-white p-6 rounded-lg text-center"
+                    v-for="(product, index) in ProductsPopuller"
+                    :key="index"
+                >
+                    <img
+                        :src="imageUrl(product.image[0])"
+                        alt="ProductsAll.name"
+                        class="w-full h-56 object-cover mb-4 rounded"
+                    />
+                    <Link :href="'/products/' + product.slug" class="text-xl">{{
+                        product.name.toLowerCase()
+                    }}</Link>
+                    <p class="text-sm mt-2">
+                        {{ helpers.rupiah(parseInt(product.price)) }}
+                    </p>
+                    <!-- <button
+                        @click="helpers.redirectToWhatsApp(product.id)"
+                        class="mt-4 bg-blue-400 text-white py-2 px-4 rounded"
+                    >
+                        Pesan Sekarang
+                    </button> -->
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-8">
+                <h2 class="text-3xl font-bold"></h2>
+                <a href="/products" class="text-blue-500">See all</a>
+            </div>
+        </div>
+    </section>
     <Footer />
 </template>
 
 <script setup>
 import Header from "../../LandingPage/Header.vue";
-import Recomended from "../../LandingPage/ProductRecomended.vue";
 import Footer from "../../LandingPage/Footer.vue";
 import { inject } from "vue";
 const helpers = inject("helper");
@@ -144,8 +178,7 @@ import { ref } from "vue";
 defineProps({
     Products: Object,
     Categori: Object,
-    ProductAttribute: Object,
-    ProductImage: Object,
+    ProductsPopuller: Object,
 });
 const showDescription = ref(true);
 

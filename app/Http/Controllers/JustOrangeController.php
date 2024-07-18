@@ -42,10 +42,9 @@ class JustOrangeController extends Controller
     {
 
         $slug = $request->slug;
-        $data["Products"] = Product::where("slug",$slug)->first();
+        $data["Products"] = Product::where("slug",$slug)->with('category')->first();
+        $data["ProductsPopuller"] = Product::where("recomended",true)->with('category')->get();
         $data["Categori"] = Categori::where('id',$data["Products"]->category_id)->first();
-        $data['ProductAttribute'] = ProductAttributes::where('product_id',$data["Products"]->id)->get();
-        $data['ProductImage'] = ProductImages::where('product_id',$data["Products"]->id)->get();
         return Inertia::render('products/detail',$data);
     }
     public function showproducts(Request $request): \Inertia\Response
